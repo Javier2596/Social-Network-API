@@ -1,3 +1,3 @@
-const Social = require('./Social');
+const Social = require('./user');
 
 module.exports = { Social };
