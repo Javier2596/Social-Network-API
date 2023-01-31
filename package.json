@@ -5,12 +5,9 @@
   "main": "server.js",
   
   "script": {
-    "test": "echo \"Error: not test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node utils/seed.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^6.0.13"

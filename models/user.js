@@ -5,8 +5,8 @@ const userSchema = new Schema(
   {
     text: String,
     username: String,
-    comments: [{ type: Schema.Types.ObjectId, ref:
-    'comment' }],
+    thoughts: [{ type: Schema.Types.ObjectId, ref:
+    'thought' }],
   },
   {
     toJSON: {
@@ -18,8 +18,8 @@ const userSchema = new Schema(
 
 // Create a virtual property `commentCount` gets amount of comments per post
 
-userSchema.virtual('commentCount').get(function () {
-  return this.comments.length;
+userSchema.virtual('thoughtCount').get(function () {
+  return this.thoughts.length;
 });
 
 // Initialize user model
