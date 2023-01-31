@@ -7,6 +7,9 @@ const userSchema = new Schema(
     username: String,
     thoughts: [{ type: Schema.Types.ObjectId, ref:
     'thought' }],
+    friends: [{ type: Schema.Types.ObjectId,
+    ref:
+    'user'}],
   },
   {
     toJSON: {
@@ -16,11 +19,16 @@ const userSchema = new Schema(
   }
 );
 
-// Create a virtual property `commentCount` gets amount of comments per post
+// Create a virtual property `thoughtCount` gets amount of thoughts per post
 
 userSchema.virtual('thoughtCount').get(function () {
   return this.thoughts.length;
 });
+// virtual property for `friendCount`
+userSchema.virtual('friendCount').get(function
+  (){
+    return this.friends.length
+  });
 
 // Initialize user model
 const User = model('user', userSchema);

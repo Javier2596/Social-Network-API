@@ -28,10 +28,40 @@ module.exports = {
       })
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'comment created, but no posts with this ID' }) : res.json({ message: 'comment created' })
+          ? res.status(404).json({ message: 'thought created, but no users with this ID' }) : res.json({ message: 'thought created' })
       )
       .catch((err) => {
         console.error(err);
       });
   },
+
+  // delete a thought
+  deleteThought(req, res) {
+    Thought.findOneAnddelete({ text: req.params.thought }, (err, result) => {
+      if (result) {
+        res.status(200).json(result);
+        console.log(`Deleted: ${result}`);
+      } else {
+        console.log('opps, something went wrong');
+        res.status(500).json({ message: 'something went wrong'});
+      }
+    });
+  },
+
+  //update a thought
+  updateThought(req, res) {
+    User.findOneAndUpdate(
+      { text: req.params.thought },
+      { new: true},
+      (err, result) => {
+        if (result) {
+          res.status(200).json(result);
+          console.log(`Updated: ${result}`);
+        } else {
+          console.log('Oh no, something went wrong');
+          res.status(500).json({ message: 'Something went wrong' });
+        }
+      } 
+    );
+  }
 };
