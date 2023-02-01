@@ -3,7 +3,7 @@ const { connect, connection } = require('mongoose');
 // wrap Mongoose around local connection to MongoDB
 connect('mongodb://127.0.0.1:27017/socialDB',
 {
-  userNewUrlParser: true,
+  useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
