@@ -3,10 +3,18 @@ const { Schema, model } = require('mongoose');
 //Schema to create user model
 const userSchema = new Schema(
   {
-    text: String,
-    username: String,
-    thoughts: [{ type: Schema.Types.ObjectId, ref:
-    'thought' }],
+    username: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    thoughts: [{ 
+      type: Schema.Types.ObjectId, 
+      ref:'thought' 
+    }],
     friends: [{ type: Schema.Types.ObjectId,
     ref:
     'user'}],
@@ -25,8 +33,7 @@ userSchema.virtual('thoughtCount').get(function () {
   return this.thoughts.length;
 });
 // virtual property for `friendCount`
-userSchema.virtual('friendCount').get(function
-  (){
+userSchema.virtual('friendCount').get(function() {
     return this.friends.length
   });
 

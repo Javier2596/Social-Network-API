@@ -9,7 +9,7 @@ module.exports = {
   },
   //finds a single user
   getSingleUser(req, res) {
-    User.findOne({ _id: req.params.postId })
+    User.findOne({ _id: req.params.userId })
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
@@ -27,7 +27,7 @@ module.exports = {
   
   //deletes a user
   deleteUser(req, res) {
-    User.findOneAnddelete({ username: req.params.user }, (err, result) => {
+    User.findOneAndRemove({ username: req.params.user }, (err, result) => {
       if (result) {
         res.status(200).json(result);
         console.log(`Deleted: ${result}`);
