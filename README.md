@@ -1,8 +1,7 @@
-# <Social-Network-API>
+# Social-Network-API
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 This challenge was to build a API for a social network that allowed users to create user accounts and thoughts, the functionality also was to allow users to add other users as friends, and react to their created thoughts. The API was also meant to allow users to edit their thoughts and delete them if they wanted to. The problems that this would solve would be to give social network applications better functionality to be more interactive for their users. What I learned from building (still building) this API is that their is alot of code and working parts that go into this APis and that time management and breaking down these projects piece by piece is key to successfully pulling it off. While this challenge is still a work in progress I can say I am proud to share what I have completed for it. 
 
 ## Installation
